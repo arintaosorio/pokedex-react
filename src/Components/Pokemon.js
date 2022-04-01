@@ -32,15 +32,21 @@ const Pokemon = (props) => {
   }, [pokemonId]);
 
   const generatePokemonJSX = (pokemon) => {
-    const { name, id, species, height, weight, types, sprites } = pokemon;
+    const { name, id, height, weight, types, sprites } = pokemon;
     const { front_default } = sprites;
     return (
       <>
         <Grid container spacing={3} justify="center">
           <Grid item xs={12} align="center">
-            <Typography mt={4} variant="h6">
+            <Typography style={{ marginTop: "30px" }} variant="h6">
               {toFirstCharUppercase(name)} {`#${id}`}
             </Typography>
+            <Typography > </Typography>
+                {types.map((typeInfo) => {
+                  const { type } = typeInfo;
+                  const { name } = type;
+                  return <Typography key={name}> {`${name}`}</Typography>;
+                })}
             <img
               style={{ width: "200px", height: "200px", margin: "auto" }}
               src={front_default}
@@ -72,20 +78,11 @@ const Pokemon = (props) => {
                 >
                   Pokemon Info
                 </Typography>
-                <Typography  component="div">
-                  {"Species: "}
-                 {species.name} 
-                </Typography>
                 <Typography sx={{ mb: 1.5 }}>
                   Height: {height}
                 </Typography>
                 <Typography >Weight: {weight}</Typography>
-                <Typography > Types:</Typography>
-                {types.map((typeInfo) => {
-                  const { type } = typeInfo;
-                  const { name } = type;
-                  return <Typography key={name}> {`${name}`}</Typography>;
-                })}
+                
               </CardContent>
             </Card>
           </Grid>
