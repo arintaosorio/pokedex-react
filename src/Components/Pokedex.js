@@ -44,7 +44,7 @@ const useStyles = makeStyles((theme) => ({
   searchInput: {
     width: "200px",
     margin: "5px",
-    color: "#FFFFFF",
+    color: "white",
   },
 }));
 
@@ -68,6 +68,7 @@ const Pokedex = (props) => {
             sprite: `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${
               index + 1
             }.png`,
+           
           };
         });
         setPokemonData(newPokemonData);
@@ -79,9 +80,9 @@ const Pokedex = (props) => {
   };
 
   const getPokemonCard = (pokemonId) => {
-    const { id, name, sprite } = pokemonData[pokemonId];
+    const { id, name, sprite, } = pokemonData[pokemonId];
     return (
-      <Grid item xs={4} key={pokemonId}>
+      <Grid item xs={3} key={pokemonId}>
         <Card onClick={() => history.push(`/${id}`)}>
           <CardMedia
             className={classes.cardMedia}
@@ -89,8 +90,9 @@ const Pokedex = (props) => {
             style={{ width: "130px", height: "130px" }}
           />
           <CardContent className={classes.cardContent}>
-            <Typography>{`${toFirstCharUppercase(name)}`}</Typography>
-            <Typography>{`${id}`}</Typography>
+            <Typography  style={{ textAlign: "left", display:"inline" }}>{`${toFirstCharUppercase(name)}`}</Typography>
+            <Typography  style={{ textAlign: "right" , color: "#F1DA06", display:"inline"}}>{`#${id}`}</Typography>
+        
           </CardContent>
         </Card>
       </Grid>

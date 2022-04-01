@@ -4,6 +4,7 @@ import Pokedex from "./Components/Pokedex";
 import Pokemon from "./Components/Pokemon";
 import { Route , Switch } from "react-router-dom";
 import Navbar from "./Components/Navbar";
+import Footer from "./Components/Footer";
 
 function App() {
   return (
@@ -13,7 +14,8 @@ function App() {
         exact
         path="/:pokemonId"
         render={(props) => <Pokemon {...props} />} />
-    </Switch></>
+    </Switch>
+    <Footer></Footer></>
   );
 }
 

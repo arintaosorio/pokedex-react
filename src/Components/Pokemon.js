@@ -1,6 +1,6 @@
-/* eslint-disable jsx-a11y/alt-text */
+
 import React, { useEffect, useState } from "react";
-import { Typography, Link, CircularProgress, Button } from "@material-ui/core";
+import { Typography, Link, CircularProgress, Button, Grid } from "@material-ui/core";
 import { toFirstCharUppercase } from "./constants";
 import axios from "axios";
 
@@ -27,12 +27,12 @@ const Pokemon = (props) => {
     const { front_default } = sprites;
     return (
       <>
+      <Grid container justify = "center">
         <Typography variant="h1">
-          {`${id}.`} {toFirstCharUppercase(name)}
-          <img src={front_default} />
+          {toFirstCharUppercase(name)} {`#${id}`}
         </Typography>
-        <img style={{ width: "300px", height: "300px" }} src={front_default} />
-        <Typography variant="h3">Pokemon Info</Typography>
+        <img style={{ width: "300px", height: "300px", margin:"auto", }} src={front_default} />
+        <Typography variant="h6">Pokemon Info</Typography>
         <Typography>
           {"Species: "}
           <Link href={species.url}>{species.name} </Link>
@@ -45,6 +45,7 @@ const Pokemon = (props) => {
           const { name } = type;
           return <Typography key={name}> {`${name}`}</Typography>;
         })}
+        </Grid>
       </>
     );
   };
@@ -57,7 +58,7 @@ const Pokemon = (props) => {
 
       {pokemon !== undefined && (
         <Button variant="contained" onClick={() => history.push("/")}>
-          back to pokedex
+         Back to Pokedex
         </Button>
       )}
     </>
