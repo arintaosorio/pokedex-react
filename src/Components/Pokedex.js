@@ -82,7 +82,7 @@ const Pokedex = (props) => {
   const getPokemonCard = (pokemonId) => {
     const { id, name, sprite, } = pokemonData[pokemonId];
     return (
-      <Grid item xs={3} key={pokemonId}>
+      <Grid item xs={12} lg={3} key={pokemonId}>
         <Card onClick={() => history.push(`/${id}`)}>
           <CardMedia
             className={classes.cardMedia}
