@@ -12,7 +12,7 @@
         const classes = useStyles();
         return ( 
             <AppBar position="static" className={classes.Nav}>
-                <img src={pokeball} style={{ width: "30px", height: "30px" , paddingLeft:"10px",  paddingTop:"10px",  paddingBottom:"10px"}} />
+                <img alt="pokeball"  src={pokeball} style={{ width: "30px", height: "30px" , paddingLeft:"10px",  paddingTop:"10px",  paddingBottom:"10px"}} />
             </AppBar>
 
         )

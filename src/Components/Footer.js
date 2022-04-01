@@ -14,7 +14,7 @@ const Footer = () => {
     const classes = useStyles();
     return ( 
         <AppBar style={{ position: "fixed", bottom: 0, height:"60px"}} className={classes.footer}>
-            <img src={pokemon} style={{ width: "100px", height: "40px" , paddingRight:"10px",  paddingTop:"10px",  paddingBottom:"10px", marginLeft: "90vw"}} />
+            <img alt="pokemon" src={pokemon} style={{ width: "100px", height: "40px" , paddingRight:"10px",  paddingTop:"10px",  paddingBottom:"10px", marginLeft: "90vw"}} />
         </AppBar>
 
     )
