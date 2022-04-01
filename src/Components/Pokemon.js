@@ -1,14 +1,11 @@
 import React, { useEffect, useState } from "react";
 import {
   Typography,
-  Link,
   CircularProgress,
   Button,
   Grid,
   Card,
-  CardMedia,
   CardContent,
-  CardActionArea,
 } from "@material-ui/core";
 import { toFirstCharUppercase } from "./constants";
 import axios from "axios";
