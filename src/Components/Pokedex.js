@@ -4,11 +4,13 @@ import {
   Card,
   CardMedia,
   CardContent,
+  CardActionArea,
   Typography,
   CircularProgress,
   Toolbar,
   AppBar,
   TextField,
+  
 } from "@material-ui/core";
 import {  makeStyles } from "@material-ui/core/styles";
 import { toFirstCharUppercase } from "./constants";
@@ -84,6 +86,7 @@ const Pokedex = (props) => {
     return (
       <Grid item xs={12} lg={3} key={pokemonId}>
         <Card onClick={() => history.push(`/${id}`)}>
+        <CardActionArea>
           <CardMedia
             className={classes.cardMedia}
             image={sprite}
@@ -94,6 +97,7 @@ const Pokedex = (props) => {
             <Typography  style={{ textAlign: "right" , color: "#F1DA06", display:"inline"}}>{`#${id}`}</Typography>
         
           </CardContent>
+          </CardActionArea>
         </Card>
       </Grid>
     );

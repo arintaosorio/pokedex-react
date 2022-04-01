@@ -1,6 +1,15 @@
-
 import React, { useEffect, useState } from "react";
-import { Typography, Link, CircularProgress, Button, Grid } from "@material-ui/core";
+import {
+  Typography,
+  Link,
+  CircularProgress,
+  Button,
+  Grid,
+  Card,
+  CardMedia,
+  CardContent,
+  CardActionArea,
+} from "@material-ui/core";
 import { toFirstCharUppercase } from "./constants";
 import axios from "axios";
 
@@ -27,24 +36,59 @@ const Pokemon = (props) => {
     const { front_default } = sprites;
     return (
       <>
-      <Grid container justify = "center">
-        <Typography variant="h1">
-          {toFirstCharUppercase(name)} {`#${id}`}
-        </Typography>
-        <img style={{ width: "300px", height: "300px", margin:"auto", }} src={front_default} alt="pokemon"  />
-        <Typography variant="h6">Pokemon Info</Typography>
-        <Typography>
-          {"Species: "}
-          <Link href={species.url}>{species.name} </Link>
-        </Typography>
-        <Typography>Height: {height} </Typography>
-        <Typography>Weight: {weight} </Typography>
-        <Typography variant="h6"> Types:</Typography>
-        {types.map((typeInfo) => {
-          const { type } = typeInfo;
-          const { name } = type;
-          return <Typography key={name}> {`${name}`}</Typography>;
-        })}
+        <Grid container spacing={3} justify="center">
+          <Grid item xs={12} align="center">
+            <Typography mt={4} variant="h6">
+              {toFirstCharUppercase(name)} {`#${id}`}
+            </Typography>
+            <img
+              style={{ width: "200px", height: "200px", margin: "auto" }}
+              src={front_default}
+              alt="pokemon"
+            />
+          </Grid>
+
+          <Grid item xs={12} lg={3} spacing={2}>
+            <Card sx={{ minWidth: 275 }} style={{backgroundColor: "#222631" , color:"white"}} align="center">
+              <CardContent>
+                <Typography>Pokedex Information</Typography>
+                <Typography  component="div">
+                  Description
+                </Typography>
+                <Typography
+                  sx={{ mb: 1.5 }}
+                  color="text.secondary"
+                ></Typography>
+              </CardContent>
+            </Card>
+          </Grid>
+          <Grid item xs={12} lg={3} spacing={2}>
+            <Card sx={{ minWidth: 275 }} style={{backgroundColor: "#222631", color:"white"}} align="center">
+              <CardContent>
+                <Typography
+                  sx={{ fontSize: 14 }}
+                 
+                  gutterBottom
+                >
+                  Pokemon Info
+                </Typography>
+                <Typography  component="div">
+                  {"Species: "}
+                 {species.name} 
+                </Typography>
+                <Typography sx={{ mb: 1.5 }}>
+                  Height: {height}
+                </Typography>
+                <Typography >Weight: {weight}</Typography>
+                <Typography > Types:</Typography>
+                {types.map((typeInfo) => {
+                  const { type } = typeInfo;
+                  const { name } = type;
+                  return <Typography key={name}> {`${name}`}</Typography>;
+                })}
+              </CardContent>
+            </Card>
+          </Grid>
         </Grid>
       </>
     );
@@ -57,8 +101,8 @@ const Pokemon = (props) => {
       {pokemon === false && <Typography> Pokemon not found</Typography>}
 
       {pokemon !== undefined && (
-        <Button variant="contained" onClick={() => history.push("/")}>
-         Back to Pokedex
+        <Button justify="center" variant="contained" onClick={() => history.push("/")}>
+          Back to Pokedex
         </Button>
       )}
     </>
